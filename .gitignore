@@ -1,0 +1,63 @@
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables
+.env
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+*.komodotools
+*.kate-swp
+*.kate-swp.*
+*.~lock.*
+*~.nib
+*.swp
+*.swo
+*.tmp
+*.tmp.*
+*.bak
+*.cache
+*.project
+*.tmproj
+*.esproj
+*.egg-info/
+*.egg
+*.sass-cache/
+.tmp/
+.happypack/
+.nyc_output/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+._*
+.Spotlight
+.Trashes
+*.stackdump
+
+# Compiled binary addons
+*.node
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Next.js build output
+.next/
+out/
