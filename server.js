@@ -12,7 +12,7 @@ const lobby = {
     welcome: function(user) {
         var msg = `Welcome to dubbl, ${user.username}!
             ${this.listUsers()}.<br/>
-            <a href="http://localhost:${port}/auth/discord">Login again...</a>`;
+            <a href="${process.env.CALLBALL_BASE_URL}auth/discord">Login again...</a>`;
         return msg;
     },
     listUsers: function() {
@@ -55,7 +55,7 @@ passport.deserializeUser((id, done) => {
 const discordStrat = new DiscordStrategy({
     clientID: '1182353826615926844',
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/auth/discord/callback',
+    callbackURL: `${process.env.CALLBALL_BASE_URL}auth/discord/callback`,
     scope: ['identify email'],
     passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
@@ -124,10 +124,10 @@ app.get('/lobby', (req, res) => {
 
 // Route for login page
 app.get('/login', (req, res) => {
-    res.send(`Please <a href="http://localhost:${port}/auth/discord">login with Discord</a>`);
+    res.send(`Please <a href="${process.env.CALLBALL_BASE_URL}auth/discord">login with Discord</a>`);
 });
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on ${process.env.CALLBALL_BASE_URL}`);
 });
