@@ -72,7 +72,7 @@ app.use(passport.session());
 
 // Route for initiating Discord authentication
 app.get('/auth/discord', (req, res, next) => {
-    let options = { failureRedirect: '/login' };
+    let options = { failureRedirect: '/' };
     const refreshToken = req.cookies.refreshToken;
     if (refreshToken) {
         refresh.requestNewAccessToken('discord', refreshToken, function(err, accessToken, refreshToken, profile) {
@@ -118,12 +118,12 @@ app.get('/lobby', (req, res) => {
         res.send(lobby.welcome(req.user));
     } else {
         // User is not authenticated, redirect to login
-        return res.redirect('/login'); // Add return statement
+        return res.redirect('/'); // Add return statement
     }
 });
 
 // Route for login page
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
     res.send(`Please <a href="${process.env.CALLBALL_BASE_URL}auth/discord">login with Discord</a>`);
 });
 
